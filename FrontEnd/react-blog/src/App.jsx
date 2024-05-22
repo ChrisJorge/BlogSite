@@ -25,12 +25,24 @@ function App() {
     console.log(response)
 }
 
+const login = async(event) => {
+  event.preventDefault();
+  const account = {userName,password}
+  const data = {
+    userName: account.userName.value,
+    password: account.password.value
+  }
+
+  const response = await axios.post(`http://localhost:3000/login`, data)
+    console.log(response)
+}
+
   return (
     <>
     <div className="App">
       <Routes>
         <Route path='/signup' element={<SignUp func = {createUser}/>}/>
-        <Route path='/login' element={<LogIn func = {createUser}/>} />
+        <Route path='/login' element={<LogIn func = {login}/>} />
       </Routes>
     </div>
         
