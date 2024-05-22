@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import Form from './components/Form'
-import axios from 'axios';
+// Import CSS
 import './App.css'
+// Import Pages
+import SignUp from './pages/SignUp';
+import LogIn from './pages/LogIn';
+// Import Libraries
+import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react'
 
 
 function App() {
-  const [Createuser, setCreateUser] = useState({userName: "", email: "", password: " "});
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
 
   const createUser = async (event) => {
     event.preventDefault();
@@ -23,7 +27,13 @@ function App() {
 
   return (
     <>
-        <Form setCreateUser = {setCreateUser} setUsers = {setUsers} createUser = {createUser}/>
+    <div className="App">
+      <Routes>
+        <Route path='/signup' element={<SignUp func = {createUser}/>}/>
+        <Route path='/login' element={<LogIn func = {createUser}/>} />
+      </Routes>
+    </div>
+        
     </>
   )
 }

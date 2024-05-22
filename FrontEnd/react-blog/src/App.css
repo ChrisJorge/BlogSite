@@ -1,10 +1,28 @@
-.masterContainer{
+.signUpContainer, .loginContainer{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
 }
+
+.loginBtnContainer, .signUpBtnContainer{
+  margin-bottom: 25px;
+}
+
+
+.loginBtnContainer:hover, .signUpBtnContainer:hover{
+ background-color: gray;
+}
+
+.loginBtn, .signUpBtn{
+  background-color: #00000000;
+  border: solid black .2px;
+  padding: 20px;
+  font-size: 25px;
+}
+
 .formContainer{
   border: solid black 2px;
   padding: 2em;

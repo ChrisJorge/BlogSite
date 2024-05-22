@@ -1,15 +1,15 @@
 import React from 'react';
-function Form({setCreateUser, setUsers, createUser}) {
+function Form({func}) {
 
    
   return (
     <>
         <div className="masterContainer">
             <div className='formContainer'>
-                <form  onSubmit={createUser}>
+                <form  onSubmit={func}>
                 <div className='formEntry'>
                     <div className="labelContainer">
-                        <label htmlFor="userName">Name</label>
+                        <label htmlFor="userName">User Name</label>
                     </div>
                     <input type='text' name='userName' id='userName' placeholder='Enter User Name'/>
                 </div>
