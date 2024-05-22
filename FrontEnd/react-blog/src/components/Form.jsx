@@ -1,19 +1,7 @@
 import React from 'react';
-import axios from "axios";
-function Form({setCreateUser, setUsers}) {
+function Form({setCreateUser, setUsers, createUser}) {
 
-    const createUser = async (event) => {
-        event.preventDefault();
-        const account = {userName,email,password}
-        const data = {
-            userName: account.userName.value,
-            email: account.email.value,
-            password: account.password.value
-
-        }
-        const response = await axios.post(`http://localhost:3000/signup`, data)
-        console.log(response)
-    }
+   
   return (
     <>
         <div className="masterContainer">
