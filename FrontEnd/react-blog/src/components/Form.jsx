@@ -11,7 +11,6 @@ function Form({setCreateUser, setUsers}) {
             password: account.password.value
 
         }
-        console.log(account.userName.value)
         const response = await axios.post(`http://localhost:3000/signup`, data)
         console.log(response)
     }

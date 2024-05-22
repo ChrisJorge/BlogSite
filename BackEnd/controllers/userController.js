@@ -7,7 +7,7 @@ export const signup = async (req,res) => {
     try{
         const {userName, email, password} = req.body;
         const hashedPassword = bcrypt.hashSync(password,10);
-        const newUser = User.create({
+        const newUser = await User.create({
             userName: userName,
             email: email,
             password: hashedPassword
@@ -15,9 +15,14 @@ export const signup = async (req,res) => {
         console.log('New User Created Successfully!');
         return res.sendStatus(200);
     }
-    catch(e)
+    catch(error)
     {
-        return res.sendStatus(401)
+        if(error.code === 11000)
+            {
+                console.log('An Account already has that username or email')
+            }
+        res.statusMessage = "An Account already has that username or email"
+        return res.status(401).end()
     };
    
 };
