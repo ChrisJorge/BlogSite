@@ -3,10 +3,12 @@ import './App.css'
 // Import Pages
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
+import Homepage from './pages/Homepage';
 // Import Libraries
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
+
 
 
 function App() {
@@ -35,12 +37,18 @@ const login = async(event) => {
 
   const response = await axios.post(`http://localhost:3000/login`, data)
     console.log(response)
+    if(response.data === 'OK')
+      {
+        setUser(data.userName)
+        console.log('user set')
+      }
 }
 
   return (
     <>
     <div className="App">
       <Routes>
+        <Route path="/" element={<Homepage />}/>
         <Route path='/signup' element={<SignUp func = {createUser}/>}/>
         <Route path='/login' element={<LogIn func = {login}/>} />
       </Routes>

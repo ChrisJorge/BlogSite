@@ -1,3 +1,4 @@
+/* CSS To Center */
 .signUpContainer, .loginContainer{
   display: flex;
   justify-content: center;
@@ -6,14 +7,9 @@
   width: 100vw;
   height: 100vh;
 }
-
+/* Login / Signup CSS */
 .loginBtnContainer, .signUpBtnContainer{
   margin-bottom: 25px;
-}
-
-
-.loginBtnContainer:hover, .signUpBtnContainer:hover{
- background-color: gray;
 }
 
 .loginBtn, .signUpBtn{
@@ -23,6 +19,12 @@
   font-size: 25px;
 }
 
+/* Hover Effect CSS */
+.loginBtnContainer:hover, .signUpBtnContainer:hover, .homepageOption:hover{
+ background-color: gray;
+}
+
+/* Form CSS */
 .formContainer{
   border: solid black 2px;
   padding: 2em;
@@ -43,3 +45,35 @@
   justify-content: space-evenly;
   margin-top: 15px;
 }
+/* HomePage CSS */
+.homepageContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.optionsContainer{
+  display: flex;
+  justify-content: space-evenly;
+  height: 35vh;
+  width: 80%;
+}
+
+.homepageOption{
+  display: flex;
+  border: solid black 2.5px;
+  width: 45%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9%;
+  color: black;
+}
+
+.homepageOptionText{
+  font-size: 35px;
+  color: black;
+}
+
