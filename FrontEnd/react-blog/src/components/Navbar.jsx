@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Form from './Form'
 function Navbar() {
+  
   return (
     <>
     <div className="navBarContainer">
@@ -14,8 +16,8 @@ function Navbar() {
                     <p className="navBarText">Profile</p>
                 </Link>
             </div>
-            <div className="placeholder">
-            
+            <div className="createPostContainer">
+             
             
             </div>
             <div className="navBarProfileContainer">
@@ -23,7 +25,9 @@ function Navbar() {
             </div>
         
     </div>
-    
+    <div className="mainFeed">
+
+    </div>
     </>
   )
 }

@@ -42,12 +42,25 @@ const login = async(event) => {
     console.log(response)
     if(response.data === 'OK')
       {
-        setUser(data)
+        setUser(data.userName)
         console.log('user set')
-        console.log(data)
         navigate("/homepage")
       }
 }
+
+const createPost = async(event) => {
+  event.preventDefault();
+  const post = {title,body};
+  const data = {
+    userName: user,
+    title: post.title.value,
+    body: post.body.value,
+    likes: 0
+  };
+
+  const response = await axios.post(`http://localhost:3000/homepage`, data);
+  console.log(response);
+};
 
 const notSignedIn = () => {
   return (
@@ -69,7 +82,7 @@ const signedIn = () => {
     <>
       <div className="app">
         <Routes>
-          <Route path='/homepage' element={<Mainpage />}/>
+          <Route path='/homepage' element={<Mainpage func={createPost}/>}/>
           <Route path='/profile' element={<Profile />}/>
         </Routes>
       </div>
