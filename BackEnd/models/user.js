@@ -1,6 +1,6 @@
 // Import necessary Libraries
 import mongoose from "mongoose";
-
+import { postSchema } from "./post.js";
 const userSchema = new mongoose.Schema({
     userName: {
         type: String,
@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
-})
+    },
+    posts: [postSchema]
+});
 
-export const user = mongoose.model("User", userSchema)
+export const user = mongoose.model("User", userSchema);

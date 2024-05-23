@@ -10,7 +10,8 @@ export const signup = async (req,res) => {
         const newUser = await User.create({
             userName: userName,
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            posts: []
         });
         console.log('New User Created Successfully!');
         return res.sendStatus(200);
