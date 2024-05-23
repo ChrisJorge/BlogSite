@@ -43,7 +43,7 @@ function Mainpage({func}) {
       method: "get",
       headers: {
         "Content-Type": 'application/json',
-        'X-Api-Key': 'fW1P94tvrogNUQUP5DqV/Q==LdMaZ518cjiPEUOv'
+        'X-Api-Key': `${import.meta.env.VITE_APIKEY}`
         
       }
     })
