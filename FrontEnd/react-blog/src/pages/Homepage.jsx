@@ -4,7 +4,7 @@ function Homepage() {
   return (
     <>
        <div className="homepageContainer">
-        <h1>Welcome! Please log in or sign up.</h1>
+        <h1 className='homepageTitle'>Welcome! Please log in or sign up.</h1>
             <div className="optionsContainer">
                 <Link to={'/signup'} className='homepageOption'>
                 <p className="homepageOptionText">Sign Up</p>

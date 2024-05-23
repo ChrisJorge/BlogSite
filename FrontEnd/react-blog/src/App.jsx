@@ -6,13 +6,15 @@ import LogIn from './pages/LogIn';
 import Homepage from './pages/Homepage';
 // Import Libraries
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react'
+import Mainpage from './pages/Mainpage';
 
 
 
 function App() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate()
 
   const createUser = async (event) => {
     event.preventDefault();
@@ -41,9 +43,11 @@ const login = async(event) => {
       {
         setUser(data.userName)
         console.log('user set')
+        navigate("/homepage")
       }
 }
 
+const notSignedIn = () => {
   return (
     <>
     <div className="App">
@@ -56,6 +60,22 @@ const login = async(event) => {
         
     </>
   )
+}
+
+const signedIn = () => {
+  return(
+    <>
+      <div className="app">
+        <Routes>
+          <Route path='/homepage' element={<Mainpage />}/>
+        </Routes>
+      </div>
+    </>
+  )
+}
+ 
+  return user ? signedIn(): notSignedIn()
+
 }
 
 export default App
