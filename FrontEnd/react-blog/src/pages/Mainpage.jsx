@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Form from '../components/Form'
 function Mainpage({func}) {
   const [visible, setVisible] = useState(false)
+
   const data = [{
     labeltype: 'text',
     name: 'title',
@@ -34,6 +35,31 @@ function Mainpage({func}) {
 
   }
 
+  const test = async () => {
+  try
+  {
+    const response = await fetch(`https://api.api-ninjas.com/v1/loremipsum?paragraphs=1`,
+    {
+      method: "get",
+      headers: {
+        "Content-Type": 'application/json',
+        'X-Api-Key': 'fW1P94tvrogNUQUP5DqV/Q==LdMaZ518cjiPEUOv'
+        
+      }
+    })
+    const data = await response.json()
+    console.log(data)
+    let body = document.querySelector('#body')
+    body.value = ""
+    body.value = data.text
+  }
+  catch(error)
+  {
+    console.log(error)
+  }
+    
+  
+  }
   useEffect(() => 
     {
       change()
@@ -44,6 +70,9 @@ function Mainpage({func}) {
         <Navbar />
         <div className="createPost">
           <Form data={data} func={func}/>
+          <label>Auto Generate Post</label>
+          <input type='checkbox' value={1} onClick={test}></input>
+          
         </div>
         <div className="createPostIcon">
           <footer>

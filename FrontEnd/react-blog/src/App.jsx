@@ -39,7 +39,7 @@ const login = async(event) => {
   }
 
   const response = await axios.post(`http://localhost:3000/login`, data)
-    console.log(response)
+    console.log(response.config.data)
     if(response.data === 'OK')
       {
         setUser(data.userName)
