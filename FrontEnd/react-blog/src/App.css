@@ -20,7 +20,7 @@
 }
 
 /* Hover Effect CSS */
-.loginBtnContainer:hover, .signUpBtnContainer:hover, .homepageOption:hover{
+.loginBtnContainer:hover, .signUpBtnContainer:hover, .homepageOption:hover, .navBarOption:hover{
  background-color: gray;
 }
 
@@ -81,3 +81,28 @@
   font-size: 50px;
 }
 
+/* Navbar CSS */
+.navBarContainer{
+  display: flex;
+  border: solid black 2.5px;
+  justify-content: space-evenly;
+  height: 25vh;
+}
+
+.navBarOptionContainer{
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.navBarOption{
+  color: black;
+  border: solid black 1px;
+  
+}
+
+.navBarText{
+ font-size: 30px;
+ height: 40px;
+ width: 180px;
+ text-align: center;
+}

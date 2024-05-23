@@ -4,6 +4,7 @@ import './App.css'
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Homepage from './pages/Homepage';
+import Profile from './pages/Profile';
 // Import Libraries
 import axios from 'axios';
 import { Route, Routes, useNavigate } from 'react-router-dom';
@@ -41,8 +42,9 @@ const login = async(event) => {
     console.log(response)
     if(response.data === 'OK')
       {
-        setUser(data.userName)
+        setUser(data)
         console.log('user set')
+        console.log(data)
         navigate("/homepage")
       }
 }
@@ -68,6 +70,7 @@ const signedIn = () => {
       <div className="app">
         <Routes>
           <Route path='/homepage' element={<Mainpage />}/>
+          <Route path='/profile' element={<Profile />}/>
         </Routes>
       </div>
     </>

@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Navbar from '../components/Navbar'
 function Mainpage() {
   return (
-    <div>Welcome</div>
+    <>
+        <Navbar />
+        <div>Welcome</div>
+    </>
   )
 }
 
