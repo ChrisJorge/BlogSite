@@ -111,7 +111,9 @@
 .createPost {
   display: none;
   position: fixed;
-  top: 50%;
+  flex-direction: column;
+  align-items: center;
+  top: 60%;
   left: 50%;
   border: solid black 2px;
   transform: translate(-50%, -50%);
@@ -126,8 +128,29 @@
   background-color: #00000000;
   border: none;
 }
-svg{
+
+.EditBTNSVG{
   border: solid black;
   padding: 25px;
   border-radius: 40%;
+}
+
+.titleInput{
+  margin-bottom: 25px;
+}
+
+#body{
+  height: 241px;
+  width: 526px;
+}
+
+.generateBTN{
+  height: 25px;
+  width: 45px;
+}
+/* Profile CSS */
+.profileContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
