@@ -6,6 +6,7 @@ import { user } from "./models/user.js";
 import {connectToDataBase} from "./config/connection.js"
 import {signup as userSignUp} from "./controllers/userController.js"
 import {login as userLogin} from "./controllers/userController.js"
+import {retrieveInfo} from "./controllers/userController.js"
 import { create as createPost } from "./controllers/postsController.js";
 
 // Initialize Necessary Variables
@@ -19,6 +20,7 @@ app.use(cors());
 app.post('/signup', userSignUp)
 app.post('/login', userLogin)
 app.post('/homepage', createPost)
+app.get('/profile/:userName', retrieveInfo)
 app.listen(PORT, () => {
     console.log(`Server listening on port number: ${PORT}`)
 })

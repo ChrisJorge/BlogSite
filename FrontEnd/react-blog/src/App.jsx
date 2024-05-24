@@ -54,7 +54,7 @@ const login = async(event) => {
   }
 try{
   const response = await axios.post(`http://localhost:3000/login`, data)
-  console.log(response.config.data)
+  console.log(response)
   if(response.data === 'OK')
     {
       setUser(data.userName)
@@ -98,6 +98,17 @@ const createPost = async(event) => {
   }
 };
 
+const getInfo = async() => {
+  try{
+    const response = await axios.get(`http://localhost:3000/profile/${user}`);
+    console.log(response)
+  } catch(error)
+  {
+    console.log(error)
+  }
+  
+
+}
 const notSignedIn = () => {
   return (
     <>
@@ -118,8 +129,8 @@ const signedIn = () => {
     <>
       <div className="app">
         <Routes>
-          <Route path='/homepage' element={<Mainpage func={createPost}/>}/>
-          <Route path='/profile' element={<Profile />}/>
+          <Route path='/homepage' element={<Mainpage func={createPost} user = {user}/>}/>
+          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo}/>}/>
         </Routes>
       </div>
     </>

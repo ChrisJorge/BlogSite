@@ -2,22 +2,9 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import Form from '../components/Form'
-function Mainpage({func}) {
+function Mainpage({func, user}) {
   const [visible, setVisible] = useState(false)
   let count = 0;
-  const data = [{
-    labeltype: 'text',
-    name: 'title',
-    labeltxt: 'title',
-    placeholdertxt: 'Enter Post Title'
-  },
-  {
-    labeltype: 'text',
-    name: 'body',
-    labeltxt: 'body',
-    placeholdertxt: 'Enter Post Body'
-  },
-]
 
   const modifyVisible = () => {
     setVisible(!visible)
@@ -37,7 +24,7 @@ function Mainpage({func}) {
 
   }
 
-  const test = async () => {
+  const genText = async () => {
     console.log(count)
     if(count % 2 === 0)
       {
@@ -75,7 +62,7 @@ function Mainpage({func}) {
 
   return (
     <>
-        <Navbar />
+        <Navbar user = {user}/>
         <div className="createPost">
           <form className='temp' onSubmit={func}>
             <div className="announcement">
@@ -86,7 +73,7 @@ function Mainpage({func}) {
             <label className='createLabel'>Body</label>
             <textarea id='body' name='body' placeholder='Enter post body'></textarea>
             <label>Auto Generate Post</label>
-            <input type='checkbox' value={1} onClick={test}></input>
+            <input type='checkbox' value={1} onClick={genText}></input>
             <div className="btnContainer">
               <button type='reset'>Clear</button>
               <button type='submit'>Submit</button>

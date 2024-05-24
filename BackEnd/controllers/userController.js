@@ -51,3 +51,10 @@ export const login = async (req,res) => {
     console.log('Passwords Match');
     return res.sendStatus(200);
 };
+
+export const retrieveInfo = async(req,res) => {
+    const userName = req.params.userName;
+    console.log(userName)
+    const user = await User.findOne({userName});
+    res.json({user})
+}

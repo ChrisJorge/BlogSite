@@ -1,9 +1,16 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-function Profile() {
+import { useState, useEffect } from 'react'
+function Profile({user, getInfo}) {
+  // console.log(user);
+
+useEffect(() => {
+  getInfo();
+}, []);
+  
   return (
     <>
-      <Navbar />
+      <Navbar user = {user}/>
       <div className="profileContainer">
         <svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" fill="currentColor" className="profileSVG" viewBox="0 0 16 16">
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>

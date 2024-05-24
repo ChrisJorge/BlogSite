@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Form from './Form'
-function Navbar() {
+function Navbar({user}) {
   
   return (
     <>
@@ -12,7 +12,7 @@ function Navbar() {
                 </Link>
             </div>
             <div className="navBarOptionContainer">
-                <Link to={'/profile'} className='navBarOption'>
+                <Link to={`/profile/${user}`} className='navBarOption'>
                     <p className="navBarText">Profile</p>
                 </Link>
             </div>
