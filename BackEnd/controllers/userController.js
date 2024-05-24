@@ -11,7 +11,8 @@ export const signup = async (req,res) => {
             userName: userName,
             email: email,
             password: hashedPassword,
-            posts: []
+            posts: [],
+            bio: ''
         });
         console.log('New User Created Successfully!');
         return res.sendStatus(200);
@@ -54,7 +55,7 @@ export const login = async (req,res) => {
 
 export const retrieveInfo = async(req,res) => {
     const userName = req.params.userName;
-    console.log(userName)
+    console.log(`Retrieving info for user: ${userName}`)
     const user = await User.findOne({userName});
-    res.json({user})
+    res.json({user: user})
 }

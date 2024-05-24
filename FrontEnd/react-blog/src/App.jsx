@@ -15,6 +15,7 @@ import Mainpage from './pages/Mainpage';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null)
   const navigate = useNavigate()
 
   const createUser = async (event) => {
@@ -101,7 +102,8 @@ const createPost = async(event) => {
 const getInfo = async() => {
   try{
     const response = await axios.get(`http://localhost:3000/profile/${user}`);
-    console.log(response)
+    console.log(response.data)
+    setUserData(response.data.user)
   } catch(error)
   {
     console.log(error)
@@ -130,7 +132,7 @@ const signedIn = () => {
       <div className="app">
         <Routes>
           <Route path='/homepage' element={<Mainpage func={createPost} user = {user}/>}/>
-          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo}/>}/>
+          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo} userData = {userData}/>}/>
         </Routes>
       </div>
     </>

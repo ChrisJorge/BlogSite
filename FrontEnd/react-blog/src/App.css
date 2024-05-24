@@ -179,3 +179,37 @@
   justify-content: center;
   margin-top: 30px;
 }
+
+.bioContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.bioTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.bioTitleText{
+  margin: 0%;
+  padding: 0%;
+  font-size: 55px;
+}
+
+
+.bioText{
+  font-size: 25px;
+}
+
+.editBioBTN{
+  background-color: #00000000;
+  border-radius: 60%;
+  margin-left: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

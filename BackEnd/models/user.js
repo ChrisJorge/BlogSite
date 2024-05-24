@@ -18,7 +18,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    posts: [postSchema]
+    posts: [postSchema],
+    bio: {
+        type: String
+    }
 });
 
 export const user = mongoose.model("User", userSchema);

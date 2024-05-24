@@ -69,7 +69,7 @@ function Mainpage({func, user}) {
               <p className='announcementTxt'></p>
             </div>
             <label className='createLabel'>Title</label>
-            <input type='text' name='title' id='title' className='titleInput'/>
+            <input type='text' name='title' id='title' className='titleInput' placeholder='Enter Post Title'/>
             <label className='createLabel'>Body</label>
             <textarea id='body' name='body' placeholder='Enter post body'></textarea>
             <label>Auto Generate Post</label>
