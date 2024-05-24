@@ -75,16 +75,21 @@ function Mainpage({func}) {
     <>
         <Navbar />
         <div className="createPost">
-          {/* <Form data={data} func={func}/> */}
-          <label>Title</label>
-          <input type='text' name='title' id='title' className='titleInput'/>
-          <label>Body</label>
-          {/* <input type='textarea' name='body' id='body' className='bodyInput'/> */}
-          <textarea id='body' name='body' placeholder='Enter post body'></textarea>
-          <label>Auto Generate Post</label>
-          <input type='checkbox' value={1} onClick={test}></input>
-          {/* <button onClick={test} className='generateBTN'></button> */}
-          
+          <form className='temp' onSubmit={func}>
+              {/* <Form data={data} func={func}/> */}
+            <label className='createLabel'>Title</label>
+            <input type='text' name='title' id='title' className='titleInput'/>
+            <label className='createLabel'>Body</label>
+            <textarea id='body' name='body' placeholder='Enter post body'></textarea>
+            <label>Auto Generate Post</label>
+            <input type='checkbox' value={1} onClick={test}></input>
+            <div className="btnContainer">
+              <button type='reset'>Clear</button>
+              <button type='submit'>Submit</button>
+            </div>
+            
+          </form>
+
         </div>
         <div className="createPostIcon">
           <footer>
