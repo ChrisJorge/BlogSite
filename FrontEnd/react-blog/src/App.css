@@ -24,7 +24,7 @@
 }
 
 /* Hover Effect CSS */
-.loginBtnContainer:hover, .signUpBtnContainer:hover, .homepageOption:hover, .navBarOption:hover, svg:hover{
+.loginBtnContainer:hover, .signUpBtnContainer:hover, .homepageOption:hover, .navBarOption:hover, svg:hover, .bioBTN:hover{
  background-color: gray;
 }
 
@@ -126,12 +126,12 @@
   justify-content: right;
 }
 
-.createPostbtn{
+.createPostbtn, .editBioBTN{
   background-color: #00000000;
   border: none;
 }
 
-.EditBTNSVG{
+.EditBTNSVG, .EditBIOSVG{
   border: solid black;
   padding: 25px;
   border-radius: 40%;
@@ -185,13 +185,19 @@
   flex-direction: column;
   margin-top: 40px;
   align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .bioTitle{
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
+.EditBIOSVG{
+  margin-left: 25px;
+  padding: 25px;
 }
 .bioTitleText{
   margin: 0%;
@@ -199,17 +205,28 @@
   font-size: 55px;
 }
 
-
 .bioText{
   font-size: 25px;
 }
 
-.editBioBTN{
-  background-color: #00000000;
-  border-radius: 60%;
-  margin-left: 20px;
-  padding: 5px;
+.bioContent{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.bioTxt{
+  font-size: 26px;
+}
+
+.bioTextArea{
+  height: 278px;
+  width: 723px;
+}
+
+.bioBTN{
+  margin-top: 15px;
+  padding: 25px;
+  background: #00000000;
 }
