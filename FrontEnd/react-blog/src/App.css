@@ -8,6 +8,10 @@
   height: 100vh;
 }
 /* Login / Signup CSS */
+.announcementContainer{
+  display: flex;
+  justify-content: center;
+}
 .loginBtnContainer, .signUpBtnContainer{
   margin-bottom: 25px;
 }

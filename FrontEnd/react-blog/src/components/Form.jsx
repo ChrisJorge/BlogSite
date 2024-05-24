@@ -7,6 +7,9 @@ function Form({func, data}) {
     <>
         <div className="formMasterContainer">
             <div className='formContainer'>
+               <div className="announcementContainer">
+                <div className="announcementTxt"></div>
+               </div>
                 <form  onSubmit={func}>
                     {data.map((item, i) => {
                         return(

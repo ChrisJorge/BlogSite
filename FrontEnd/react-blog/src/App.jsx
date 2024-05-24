@@ -6,7 +6,7 @@ import LogIn from './pages/LogIn';
 import Homepage from './pages/Homepage';
 import Profile from './pages/Profile';
 // Import Libraries
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react'
 import Mainpage from './pages/Mainpage';
@@ -19,6 +19,7 @@ function App() {
 
   const createUser = async (event) => {
     event.preventDefault();
+    let msg = document.querySelector('.announcementTxt')
     const account = {userName,email,password}
     const data = {
         userName: account.userName.value,
@@ -26,8 +27,21 @@ function App() {
         password: account.password.value
 
     }
-    const response = await axios.post(`http://localhost:3000/signup`, data)
-    console.log(response)
+    try{
+      const response = await axios.post(`http://localhost:3000/signup`, data)
+      console.log(response)
+      if(response.data === "OK")
+        {
+          msg.innerHTML = "Account Created! Please Login"
+          msg.setAttribute('style', 'color:green');
+      }
+    }
+    catch(error)
+    {
+      msg.innerHTML = "Account already exists with that username or email"
+      msg.setAttribute('style', 'color:red');
+    }
+    
 }
 
 const login = async(event) => {

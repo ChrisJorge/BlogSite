@@ -22,8 +22,12 @@ export const signup = async (req,res) => {
             {
                 console.log('An Account already has that username or email')
             }
+        else if (error.response.statusText === 'An Account already has that username or email')
+            {
+                return res.sendStatus(400)
+            }
         res.statusMessage = "An Account already has that username or email"
-        return res.status(401).end()
+        return res.sendStatus(401)
     };
    
 };
