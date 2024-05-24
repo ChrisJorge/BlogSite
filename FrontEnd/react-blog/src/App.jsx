@@ -45,21 +45,29 @@ function App() {
 }
 
 const login = async(event) => {
+  let msg = document.querySelector('.announcementTxt')
   event.preventDefault();
   const account = {userName,password}
   const data = {
     userName: account.userName.value,
     password: account.password.value
   }
-
+try{
   const response = await axios.post(`http://localhost:3000/login`, data)
-    console.log(response.config.data)
-    if(response.data === 'OK')
-      {
-        setUser(data.userName)
-        console.log('user set')
-        navigate("/homepage")
-      }
+  console.log(response.config.data)
+  if(response.data === 'OK')
+    {
+      setUser(data.userName)
+      console.log('user set')
+      navigate("/homepage")
+    }
+}
+catch(error)
+{
+  msg.innerHTML = "Username or password is incorrect!"
+  msg.setAttribute('style', 'color:red');
+}
+ 
 }
 
 const createPost = async(event) => {
