@@ -25,6 +25,8 @@ function Mainpage({func}) {
 
   const change = () => {
     let container = document.querySelector('.createPost')
+    let msg = document.querySelector('.announcementTxt')
+    msg.innerHTML = " "
     if(visible)
     {
      container.setAttribute('style', 'display:flex')
@@ -76,7 +78,9 @@ function Mainpage({func}) {
         <Navbar />
         <div className="createPost">
           <form className='temp' onSubmit={func}>
-              {/* <Form data={data} func={func}/> */}
+            <div className="announcement">
+              <p className='announcementTxt'></p>
+            </div>
             <label className='createLabel'>Title</label>
             <input type='text' name='title' id='title' className='titleInput'/>
             <label className='createLabel'>Body</label>

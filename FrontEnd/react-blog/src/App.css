@@ -147,6 +147,17 @@
   border: solid black 1.5px;
 }
 
+.announcementTxt{
+  font-size: 25px;
+}
+
+.green{
+  color: green;
+}
+
+.red{
+  color: red;
+}
 .btnContainer{
   display: flex;
   width: 100%;

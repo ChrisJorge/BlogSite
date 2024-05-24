@@ -49,6 +49,9 @@ const login = async(event) => {
 }
 
 const createPost = async(event) => {
+  let msg = document.querySelector('.announcementTxt')
+  let t = document.querySelector('#title')
+  let b = document.querySelector('#body')
   event.preventDefault();
   const post = {title,body};
   const data = {
@@ -60,6 +63,17 @@ const createPost = async(event) => {
 
   const response = await axios.post(`http://localhost:3000/homepage`, data);
   console.log(response);
+  if(response.data === "OK")
+    {
+      msg.innerHTML = "Post Created!"
+      msg.setAttribute('style', 'color:green');
+      b.value = ''
+      t.value = ''
+    }
+  else{
+    msg.innerHTML = "Something Went Wrong!"
+    msg.setAttribute('style', 'color:red');
+  }
 };
 
 const notSignedIn = () => {
