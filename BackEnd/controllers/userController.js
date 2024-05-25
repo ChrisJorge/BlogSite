@@ -59,3 +59,17 @@ export const retrieveInfo = async(req,res) => {
     const user = await User.findOne({userName});
     res.json({user: user})
 }
+
+
+export const updateBio = async(req,res) => {
+    const userName = req.params.userName;
+    const {email,password,posts,bio} = req.body
+    const user = await User.findOneAndUpdate({userName}, {
+        userName: userName,
+        email: email,
+        password: password,
+        posts: posts,
+        bio: bio
+    })
+    res.json({user:user})
+}

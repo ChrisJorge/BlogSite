@@ -99,6 +99,21 @@ const createPost = async(event) => {
   }
 };
 
+const editBio = async(event) => {
+  event.preventDefault()
+  const bio = document.querySelector('.bioTextArea').value
+  console.log(bio)
+  const data = {
+    userName: user,
+    email: userData.email,
+    password: userData.password,
+    posts: userData.posts,
+    bio: bio
+  }
+  const response = await axios.put(`http://localhost:3000/profile/${user}`, data)
+  getInfo()
+}
+
 const getInfo = async() => {
   try{
     const response = await axios.get(`http://localhost:3000/profile/${user}`);
@@ -111,6 +126,7 @@ const getInfo = async() => {
   
 
 }
+
 const notSignedIn = () => {
   return (
     <>
@@ -132,7 +148,7 @@ const signedIn = () => {
       <div className="app">
         <Routes>
           <Route path='/homepage' element={<Mainpage func={createPost} user = {user}/>}/>
-          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo} userData = {userData}/>}/>
+          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo} userData = {userData} editBio = {editBio}/>}/>
         </Routes>
       </div>
     </>

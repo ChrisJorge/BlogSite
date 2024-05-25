@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
-function Profile({user, getInfo, userData }) {
+function Profile({user, getInfo, userData, editBio }) {
   const [visible, setVisible] = useState(false)
  
 
@@ -10,27 +10,29 @@ function Profile({user, getInfo, userData }) {
   }
 
   const change = () => {
+    if(userData)
+      {
     let bio = document.querySelector('.bioTxt')
     let container = document.querySelector('.bioForm')
-    let txt = document.querySelector('.bioTxt').innerHTML
     let txtArea = document.querySelector('.bioTextArea');
-    if(visible)
-    {
-     bio.setAttribute('style', 'display: none')
-     container.setAttribute('style', 'display:block')
-     if(txt === 'No bio found, please enter a bio!')
+     
+      if(visible)
       {
-       txtArea.placeholder = "Enter a bio!"
+      bio.setAttribute('style', 'display: none')
+      container.setAttribute('style', 'display:block')
+      if(bio.innerHTML === 'No bio found, please enter a bio!')
+        {
+        txtArea.placeholder = "Enter a bio!"
+        }
+        else{
+          txtArea.value = bio.innerHTML
+        }
       }
       else{
-        txtArea.value = txt
+        bio.setAttribute('style', 'display: block')
+        container.setAttribute('style', 'display:none')
       }
     }
-    else{
-      bio.setAttribute('style', 'display: block')
-      container.setAttribute('style', 'display:none')
-    }
-
   }
 
 useEffect(() => {
@@ -41,10 +43,10 @@ useEffect(() => {
   change()
 },[visible])
 
-const edit = () => {
-  let textval = document.querySelector('.bioTxt').innerHTML
-  let txt = document.querySelector('.bioTxt')
-}
+// const edit = () => {
+//   let textval = document.querySelector('.bioTxt').innerHTML
+//   let txt = document.querySelector('.bioTxt')
+// }
 
 const loaded = () => {
   return (
@@ -68,8 +70,8 @@ const loaded = () => {
           <div className="bioContent">
             {userData.bio !== "" ? <p className='bioTxt'>{userData.bio}</p> : <p className='bioTxt'>No bio found, please enter a bio!</p>}
             <div className="bioForm">
-              <form>
-                <textarea className='bioTextArea'></textarea>
+              <form onClick={editBio}>
+                <textarea className='bioTextArea' id='bioBody' name='bioBody'></textarea>
                 <div className="btnContainer">
                   <button type='reset' className='bioBTN'>Clear</button>
                   <button type='submit' className='bioBTN'>Submit</button>

@@ -230,3 +230,7 @@
   padding: 25px;
   background: #00000000;
 }
+
+.bioForm{
+  display: none;
+}
