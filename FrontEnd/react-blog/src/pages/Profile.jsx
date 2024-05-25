@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import Post from '../components/Post'
 function Profile({user, getInfo, userData, editBio }) {
+  console.log(user)
   const [visible, setVisible] = useState(false)
  
 
@@ -58,6 +59,7 @@ const loaded = () => {
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
           <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
         </svg>
+        <p className='bioUser'>{user}</p>
       </div>
       <div className="bioContainer">
         <div className="bioTitle">
@@ -84,7 +86,7 @@ const loaded = () => {
                 <p className="postTitleText">Posts</p>
               </div>
               <div className="postsContent">
-                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(<div key={i}><Post title = {post.title} body = {post.body}/></div>) })} </div> : <p>You dont have any posts, make one now!</p>}
+                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(<div className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body}/></div>) })} </div> : <p>You dont have any posts, make one now!</p>}
               </div>
             </div>
             

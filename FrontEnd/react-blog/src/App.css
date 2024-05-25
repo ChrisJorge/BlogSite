@@ -176,7 +176,8 @@
 /* Profile CSS */
 .profileContainer{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 30px;
 }
 
@@ -199,7 +200,7 @@
   margin-left: 25px;
   padding: 25px;
 }
-.bioTitleText, .postTitleText{
+.bioTitleText, .postTitleText, .bioUser{
   margin: 0%;
   padding: 0%;
   font-size: 55px;
@@ -233,6 +234,10 @@
 
 .bioForm{
   display: none;
+}
+
+.bioPostContainer{
+  margin-top: 15px;
 }
 /* Post CSS */
 
