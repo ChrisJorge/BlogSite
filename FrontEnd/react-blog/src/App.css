@@ -189,7 +189,7 @@
   margin-right: 20%;
 }
 
-.bioTitle{
+.bioTitle, .postTitle{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,7 +199,7 @@
   margin-left: 25px;
   padding: 25px;
 }
-.bioTitleText{
+.bioTitleText, .postTitleText{
   margin: 0%;
   padding: 0%;
   font-size: 55px;
@@ -233,4 +233,18 @@
 
 .bioForm{
   display: none;
+}
+/* Post CSS */
+
+.postContainer{
+  width: 700px;
+  border: solid black 1.5px;
+}
+
+.postTitle{
+  margin-top: 15px;
+}
+
+.postBody{
+  padding: 5px;
 }

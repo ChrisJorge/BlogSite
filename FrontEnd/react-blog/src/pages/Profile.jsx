@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
+import Post from '../components/Post'
 function Profile({user, getInfo, userData, editBio }) {
   const [visible, setVisible] = useState(false)
  
@@ -77,6 +78,14 @@ const loaded = () => {
                   <button type='submit' className='bioBTN'>Submit</button>
                 </div>
               </form>
+            </div>
+            <div className="postProfileContainer">
+              <div className="postTitle">
+                <p className="postTitleText">Posts</p>
+              </div>
+              <div className="postsContent">
+                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(<div key={i}><Post title = {post.title} body = {post.body}/></div>) })} </div> : <p>You dont have any posts, make one now!</p>}
+              </div>
             </div>
             
           </div>
