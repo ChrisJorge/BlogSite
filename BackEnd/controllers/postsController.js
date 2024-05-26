@@ -29,5 +29,9 @@ export const create = async(req,res) => {
         res.sendStatus(400);
     }
     
+}
 
+export const updatePost = (req,res) => {
+    const postID = req.params.id;
+    console.log(postID)
 }
