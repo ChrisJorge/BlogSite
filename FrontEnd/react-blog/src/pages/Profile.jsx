@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import Post from '../components/Post'
-function Profile({user, getInfo, userData, editBio }) {
+function Profile({user, getInfo, userData, editBio, editPost }) {
   console.log(user)
   const [visible, setVisible] = useState(false)
  
@@ -45,10 +45,7 @@ useEffect(() => {
   change()
 },[visible])
 
-// const edit = () => {
-//   let textval = document.querySelector('.bioTxt').innerHTML
-//   let txt = document.querySelector('.bioTxt')
-// }
+
 
 const loaded = () => {
   return (
@@ -86,7 +83,10 @@ const loaded = () => {
                 <p className="postTitleText">Posts</p>
               </div>
               <div className="postsContent">
-                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(<div className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body}/></div>) })} </div> : <p>You dont have any posts, make one now!</p>}
+                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(
+                <div className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body} id = {post._id} editPost = {editPost} num={i}/>
+                </div>
+                )})} </div> : <p>You dont have any posts, make one now!</p>}
               </div>
             </div>
             
