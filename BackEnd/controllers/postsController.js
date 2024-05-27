@@ -57,3 +57,23 @@ export const updatePost = async (req,res) => {
     
     res.sendStatus(200)
 }
+
+export const deletePost = async (req,res) => {
+    const postID = req.params.id;
+    const userName = req.params.userName
+
+    await Post.findByIdAndDelete(postID);
+    const user = await User.findOne({userName})
+    for(let i = 0; i < user.posts.length; i++)
+        {
+            if(user.posts[i]._id == postID)
+                {
+                    user.posts.splice(i,1);
+                    await user.save()
+                    break;
+                  
+                }
+        }
+    
+    res.sendStatus(200);
+}

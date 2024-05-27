@@ -10,6 +10,7 @@ import {retrieveInfo} from "./controllers/userController.js"
 import { updateBio } from "./controllers/userController.js";
 import { create as createPost } from "./controllers/postsController.js";
 import { updatePost } from "./controllers/postsController.js";
+import { deletePost } from "./controllers/postsController.js";
 
 // Initialize Necessary Variables
 dotenv.config();
@@ -25,6 +26,8 @@ app.post('/homepage', createPost)
 app.get('/profile/:userName', retrieveInfo)
 app.put('/profile/:userName', updateBio)
 app.put('/profile/:userName/:id/:num', updatePost)
+app.delete('/profile/:userName/:id/:num', deletePost)
+
 app.listen(PORT, () => {
     console.log(`Server listening on port number: ${PORT}`)
 })

@@ -43,6 +43,18 @@ function Post({title, body, id,num, user, getInfo}) {
       }
    }
 
+   const deletePost = async(event) => {
+    event.preventDefault();
+    event.stopPropagation()
+    const response = await axios.delete(`http://localhost:3000/profile/${user}/${id}/${num}`)
+    console.log(response)
+    if(response)
+      {
+        setVisible(!visible)
+        getInfo()
+      }
+   }
+
 
   useEffect(() => {
     change(num)
@@ -59,6 +71,7 @@ function Post({title, body, id,num, user, getInfo}) {
         </div>
       </div>
       <button onClick={modifyVisible} >Edit</button>
+      <button onClick={deletePost}>Delete</button>
     </div>
     <div className='editPostContainer'>
         <form className='temp' onSubmit={editPost} action= {`http://localhost:3000/profile/${user}/${id}`} >
