@@ -40,13 +40,20 @@ export const updatePost = async (req,res) => {
     const user = await User.findOne({userName})
     const post = await Post.findById(postID)
 
-    user.posts[num].title = title;
-    user.posts[num].body = body;
+    if(user)
+        {
+            user.posts[num].title = title;
+            user.posts[num].body = body;
+            await user.save()
+        }
 
-    post.title = title;
-    post.body = body;
+    if(post)
+        {
+            post.title = title;
+            post.body = body;
+            await post.save()
+        }
     
-    await user.save()
-    await post.save()
+    
     res.sendStatus(200)
 }

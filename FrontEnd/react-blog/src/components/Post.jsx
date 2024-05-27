@@ -33,6 +33,7 @@ function Post({title, body, id,num, user, getInfo}) {
      title: event.target[0].value,
      body: event.target[1].value
     }
+    console.log(data)
     const response = await axios.put(`http://localhost:3000/profile/${user}/${id}/${num}`, data)
     console.log(response)
     if(response)
