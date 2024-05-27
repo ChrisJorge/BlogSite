@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
-import Form from '../components/Form'
 function Mainpage({func, user}) {
   const [visible, setVisible] = useState(false)
   let count = 0;

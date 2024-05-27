@@ -24,7 +24,7 @@ app.post('/login', userLogin)
 app.post('/homepage', createPost)
 app.get('/profile/:userName', retrieveInfo)
 app.put('/profile/:userName', updateBio)
-app.put('/profile/:id', updatePost)
+app.put('/profile/:userName/:id/:num', updatePost)
 app.listen(PORT, () => {
     console.log(`Server listening on port number: ${PORT}`)
 })

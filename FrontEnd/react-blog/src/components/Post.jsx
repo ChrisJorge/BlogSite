@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-function Post({title, body, id, editPost,num}) {
-  let count = 0
+import axios from 'axios';
+function Post({title, body, id,num, user, getInfo}) {
   const [visible, setVisible] = useState(false)
   const modifyVisible = () => {
     setVisible(!visible)
@@ -12,7 +12,6 @@ function Post({title, body, id, editPost,num}) {
     let postBody = document.querySelectorAll('.postBody')[num]
     let tinput = document.querySelectorAll('.titleInput')[num]
     let txtArea = document.querySelectorAll('#body')[num]
-    console.log(visible)
     let editContainer = document.querySelectorAll('.editPostContainer')[num];
     if(visible)
       {
@@ -26,6 +25,22 @@ function Post({title, body, id, editPost,num}) {
         editContainer.setAttribute('style', 'display: none')
       }
   }
+
+  const editPost = async (event) => {
+    event.preventDefault();
+    event.stopPropagation()
+    const data = {
+     title: event.target[0].value,
+     body: event.target[1].value
+    }
+    const response = await axios.put(`http://localhost:3000/profile/${user}/${id}/${num}`, data)
+    console.log(response)
+    if(response)
+      {
+        setVisible(!visible)
+        getInfo()
+      }
+   }
 
 
   useEffect(() => {
@@ -45,7 +60,7 @@ function Post({title, body, id, editPost,num}) {
       <button onClick={modifyVisible} >Edit</button>
     </div>
     <div className='editPostContainer'>
-        <form className='temp' >
+        <form className='temp' onSubmit={editPost} action= {`http://localhost:3000/profile/${user}/${id}`} >
             <div className="announcement">
               <p className='announcementTxt'></p>
             </div>

@@ -5,7 +5,6 @@ import Post from '../components/Post'
 function Profile({user, getInfo, userData, editBio, editPost }) {
   console.log(user)
   const [visible, setVisible] = useState(false)
- 
 
   const modifyVisible = () => {
     setVisible(!visible)
@@ -84,7 +83,7 @@ const loaded = () => {
               </div>
               <div className="postsContent">
                 {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(
-                <div className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body} id = {post._id} editPost = {editPost} num={i}/>
+                <div className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body} id = {post._id} editPost = {editPost} num={i} user = {user} getInfo = {getInfo}/>
                 </div>
                 )})} </div> : <p>You dont have any posts, make one now!</p>}
               </div>

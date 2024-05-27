@@ -114,22 +114,6 @@ const editBio = async(event) => {
   getInfo()
 }
 
-const editPost = (num,count) => {
- let postContainer = document.querySelectorAll('.postSecondaryContainer')[num];
- let editContainer = document.querySelectorAll('.editPostContainer')[num];
- console.log(editContainer)
- console.log(editContainer)
- if(count % 2 === 0)
-  {
-    editContainer.setAttribute('style', 'display: block')
-    postContainer.setAttribute('style', 'display:none')
-  }
-  else{
-  postContainer.setAttribute('style', 'display:block')
-    editContainer.setAttribute('sytle', 'display: none')
-  }
-
-}
 
 const getInfo = async() => {
   try{
@@ -165,7 +149,7 @@ const signedIn = () => {
       <div className="app">
         <Routes>
           <Route path='/homepage' element={<Mainpage func={createPost} user = {user}/>}/>
-          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo} userData = {userData} editBio = {editBio} editPost = {editPost}/>}/>
+          <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo} userData = {userData} editBio = {editBio}/>}/>
         </Routes>
       </div>
     </>
