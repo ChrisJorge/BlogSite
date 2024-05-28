@@ -78,3 +78,8 @@ export const deletePost = async (req,res) => {
     
     res.sendStatus(200);
 }
+
+export const fetchPosts = async(req,res) => {
+    const posts = await Post.find();
+    res.json({posts: posts});
+}

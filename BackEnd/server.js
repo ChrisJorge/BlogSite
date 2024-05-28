@@ -11,6 +11,7 @@ import { updateBio } from "./controllers/userController.js";
 import { create as createPost } from "./controllers/postsController.js";
 import { updatePost } from "./controllers/postsController.js";
 import { deletePost } from "./controllers/postsController.js";
+import { fetchPosts } from "./controllers/postsController.js";
 
 // Initialize Necessary Variables
 dotenv.config();
@@ -20,6 +21,7 @@ const PORT = process.env.PORT
 app.use(express.json());
 app.use(cors());
 
+app.get('/homepage', fetchPosts)
 app.post('/signup', userSignUp)
 app.post('/login', userLogin)
 app.post('/homepage', createPost)

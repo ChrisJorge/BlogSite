@@ -50,7 +50,7 @@ function Post({title, body, id,num, user, getInfo}) {
     console.log(response)
     if(response)
       {
-        setVisible(!visible)
+        // setVisible(!visible)
         getInfo()
       }
    }

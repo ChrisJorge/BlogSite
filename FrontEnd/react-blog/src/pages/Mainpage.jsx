@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
-function Mainpage({func, user}) {
+import Feedpost from '../components/Feedpost';
+function Mainpage({func, user, getPosts, posts}) {
   const [visible, setVisible] = useState(false)
   let count = 0;
 
@@ -59,9 +60,19 @@ function Mainpage({func, user}) {
       change()
     },[visible])
 
+  useEffect(() => {
+    getPosts()
+  }, [])
+
   return (
     <>
         <Navbar user = {user}/>
+        <div className="posts">
+          {posts.map((post,i) => {
+            return(<div className='postContainer' key={i}> <Feedpost title = {post.title} body = {post.body} user = {post.userName}/></div>)
+          })}
+        
+        </div>
         <div className="createPost">
           <form className='temp' onSubmit={func}>
             <div className="announcement">
