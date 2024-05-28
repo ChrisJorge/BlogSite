@@ -68,7 +68,7 @@ function Mainpage({func, user, getPosts, posts}) {
     <>
         <Navbar user = {user}/>
         <div className="posts">
-          { posts ? <div>{ posts.map((post,i) => { return(<div className='MainPagePostContainer' key={i}> <Feedpost title = {post.title} body = {post.body} user = {post.userName}/></div>)})}</div> : 
+          { posts ? <div>{posts.slice(0).reverse().map((post,i) => { return(<div className='MainPagePostContainer' key={i}> <Feedpost title = {post.title} body = {post.body} user = {post.userName}/></div>)})}</div> : 
             <p>Posts Loading</p>}
         
         </div>
