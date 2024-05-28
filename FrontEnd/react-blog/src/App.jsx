@@ -104,6 +104,8 @@ const createPost = async(event) => {
     msg.innerHTML = "Something Went Wrong!"
     msg.setAttribute('style', 'color:red');
   }
+
+  getPosts();
 };
 
 const editBio = async(event) => {
