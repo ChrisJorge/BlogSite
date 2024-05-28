@@ -6,6 +6,7 @@ export const create = async(req,res) => {
     console.log('creating post')
     const{userName,title,body,likes} = req.body;
     const newPost = await Post.create({
+        userName: userName,
         title: title,
         body: body,
         likes: likes
