@@ -70,8 +70,11 @@ function Post({title, body, id,num, user, getInfo}) {
             {body}
         </div>
       </div>
+      <div className="btnContainer">
       <button onClick={modifyVisible} >Edit</button>
       <button onClick={deletePost}>Delete</button>
+      </div>
+     
     </div>
     <div className='editPostContainer'>
         <form className='temp' onSubmit={editPost} action= {`http://localhost:3000/profile/${user}/${id}`} >

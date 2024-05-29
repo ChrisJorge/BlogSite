@@ -14,6 +14,7 @@
 }
 .loginBtnContainer, .signUpBtnContainer{
   margin-bottom: 25px;
+  background-color: white;
 }
 
 .loginBtn, .signUpBtn{
@@ -32,6 +33,7 @@
 .formContainer{
   border: solid black 2px;
   padding: 2em;
+  background-color: white;
 }
 .formEntry{
   margin-top: 15px;
@@ -57,14 +59,16 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: rgb(27, 67, 179);
   margin: 0%;
   padding: 0%;
 }
 
 html{
   margin: 0%;
-  background-color: rgb(27, 67, 179);
+  /* background-color: rgb(75, 117, 234); */
+  background-image: url('https://wallpapers.com/images/hd/profile-picture-background-10tprnkqwqif4lyv.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .optionsContainer{
@@ -101,7 +105,9 @@ html{
   display: flex;
   border: solid black 2.5px;
   justify-content: space-evenly;
-  height: 25vh;
+  height: 15vh;
+  margin: 0%;
+  padding: 0%;
 }
 
 .navBarOptionContainer{
@@ -112,7 +118,7 @@ html{
 .navBarOption{
   color: black;
   border: solid black 1px;
-  
+  background-color: white;
 }
 
 .navBarText{
@@ -155,16 +161,25 @@ html{
 .titleInput{
   margin-bottom: 25px;
   border: solid black 1.5px;
+  font-size: 20px;
 }
 
 .createLabel{
   margin-bottom: 10px;
+  color: white;
+  font-size: 25px;
+}
+
+.mainPage{
+  color: black;
 }
 #body{
   height: 241px;
   width: 526px;
   border: solid black 1.5px;
+  font-size: 20px;
 }
+
 
 .announcementTxt{
   font-size: 25px;
@@ -215,20 +230,31 @@ html{
   margin-right: 20%;
 }
 
+.profileSVG{
+  color: white;
+}
+
+
 .bioTitle, .postTitle{
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 .EditBIOSVG{
   margin-left: 25px;
   padding: 25px;
+  border: solid white;
+  color: white;
 }
+
+
 .bioTitleText, .postTitleText, .bioUser{
   margin: 0%;
   padding: 0%;
   font-size: 55px;
+  color: white;
 }
 
 .bioText{
@@ -244,17 +270,21 @@ html{
 
 .bioTxt{
   font-size: 26px;
+  color: white;
 }
 
 .bioTextArea{
   height: 278px;
   width: 723px;
+  color: black;
+  font-size: 20px;
 }
 
 .bioBTN{
   margin-top: 15px;
   padding: 25px;
   background: #00000000;
+  color: white;
 }
 
 .bioForm{
@@ -268,15 +298,19 @@ html{
 
 .postContainer{
   width: 700px;
-  border: solid black 1.5px;
+  border: solid black 2.5px;
+  border-radius: 4%;
 }
 
 .postTitle{
   margin-top: 15px;
+  font-size: 35px;
 }
 
-.postBody{
+.postBody, .postFooter{
   padding: 5px;
+  color: white;
+  font-size: 22px;
 }
 
 .editPostContainer{

@@ -77,9 +77,9 @@ function Mainpage({func, user, getPosts, posts}) {
             <div className="announcement">
               <p className='announcementTxt'></p>
             </div>
-            <label className='createLabel'>Title</label>
+            <label className='createLabel mainPage'>Title</label>
             <input type='text' name='title' id='title' className='titleInput' placeholder='Enter Post Title'/>
-            <label className='createLabel'>Body</label>
+            <label className='createLabel mainPage'>Body</label>
             <textarea id='body' name='body' placeholder='Enter post body'></textarea>
             <label>Auto Generate Post</label>
             <input type='checkbox' value={1} onClick={genText}></input>

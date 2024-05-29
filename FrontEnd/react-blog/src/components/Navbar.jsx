@@ -16,14 +16,6 @@ function Navbar({user}) {
                     <p className="navBarText">Profile</p>
                 </Link>
             </div>
-            <div className="createPostContainer">
-             
-            
-            </div>
-            <div className="navBarProfileContainer">
-            
-            </div>
-        
     </div>
     <div className="mainFeed">
 
