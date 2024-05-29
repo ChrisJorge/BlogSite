@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 function Homepage() {
   return (
-    <>
        <div className="homepageContainer">
         <h1 className='homepageTitle'>Welcome! Please log in or sign up.</h1>
             <div className="optionsContainer">
@@ -14,7 +13,6 @@ function Homepage() {
                 </Link>
             </div>
        </div>
-    </>
   )
 }
 

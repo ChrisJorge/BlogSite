@@ -82,8 +82,10 @@ const loaded = () => {
                 <p className="postTitleText">Posts</p>
               </div>
               <div className="postsContent">
-                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { return(
-                <div className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body} id = {post._id} editPost = {editPost} num={i} user = {user} getInfo = {getInfo}/>
+                {userData.posts.length > 0 ? <div> {userData.posts.map((post, i) => { 
+                  return( 
+                <div 
+                  className = "bioPostContainer" key={i}><Post title = {post.title} body = {post.body} id = {post._id} editPost = {editPost} num={i} user = {user} getInfo = {getInfo}/>
                 </div>
                 )})} </div> : <p>You dont have any posts, make one now!</p>}
               </div>
