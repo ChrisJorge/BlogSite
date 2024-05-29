@@ -78,35 +78,35 @@ const getPosts = async(event) => {
   setPosts(response.data.posts)
 }
 
-const createPost = async(event) => {
-  let msg = document.querySelector('.announcementTxt')
-  let t = document.querySelector('#title')
-  let b = document.querySelector('#body')
-  event.preventDefault();
-  const post = {title,body};
-  const data = {
-    userName: user,
-    title: post.title.value,
-    body: post.body.value,
-    likes: 0
-  };
+// const createPost = async(event) => {
+//   let msg = document.querySelector('.announcementTxt')
+//   let t = document.querySelector('#title')
+//   let b = document.querySelector('#body')
+//   event.preventDefault();
+//   const post = {title,body};
+//   const data = {
+//     userName: user,
+//     title: post.title.value,
+//     body: post.body.value,
+//     likes: 0
+//   };
 
-  const response = await axios.post(`http://localhost:3000/homepage`, data);
-  console.log(response);
-  if(response.data === "OK")
-    {
-      msg.innerHTML = "Post Created!"
-      msg.setAttribute('style', 'color:green');
-      b.value = ''
-      t.value = ''
-    }
-  else{
-    msg.innerHTML = "Something Went Wrong!"
-    msg.setAttribute('style', 'color:red');
-  }
+//   const response = await axios.post(`http://localhost:3000/homepage`, data);
+//   console.log(response);
+//   if(response.data === "OK")
+//     {
+//       msg.innerHTML = "Post Created!"
+//       msg.setAttribute('style', 'color:green');
+//       b.value = ''
+//       t.value = ''
+//     }
+//   else{
+//     msg.innerHTML = "Something Went Wrong!"
+//     msg.setAttribute('style', 'color:red');
+//   }
 
-  getPosts();
-};
+//   getPosts();
+// };
 
 const editBio = async(event) => {
   event.preventDefault()
@@ -157,7 +157,7 @@ const signedIn = () => {
     <>
       <div className="app">
         <Routes>
-          <Route path='/homepage' element={<Mainpage func={createPost} user = {user} getPosts={getPosts} posts = {posts}/>}/>
+          <Route path='/homepage' element={<Mainpage user = {user} getPosts={getPosts} posts = {posts}/>}/>
           <Route path='/profile/:user' element={<Profile user = {user} getInfo = {getInfo} userData = {userData} editBio = {editBio}/>}/>
         </Routes>
       </div>

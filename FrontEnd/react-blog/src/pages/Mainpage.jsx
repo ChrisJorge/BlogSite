@@ -2,10 +2,40 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import Feedpost from '../components/Feedpost';
-function Mainpage({func, user, getPosts, posts}) {
+import axios from 'axios';
+function Mainpage({ user, getPosts, posts}) {
   const [visible, setVisible] = useState(false)
   let count = 0;
 
+  const createPost = async(event) => {
+    let msg = document.querySelector('.announcementTxt')
+    let t = document.querySelector('#title')
+    let b = document.querySelector('#body')
+    event.preventDefault();
+    const post = {title,body};
+    const data = {
+      userName: user,
+      title: post.title.value,
+      body: post.body.value,
+      likes: 0
+    };
+  
+    const response = await axios.post(`http://localhost:3000/homepage`, data);
+    console.log(response);
+    if(response.data === "OK")
+      {
+        msg.innerHTML = "Post Created!"
+        msg.setAttribute('style', 'color:green');
+        b.value = ''
+        t.value = ''
+      }
+    else{
+      msg.innerHTML = "Something Went Wrong!"
+      msg.setAttribute('style', 'color:red');
+    }
+    setVisible(!visible)
+    getPosts();
+  };
   const modifyVisible = () => {
     setVisible(!visible)
   }
@@ -73,7 +103,7 @@ function Mainpage({func, user, getPosts, posts}) {
         
         </div>
         <div className="createPost">
-          <form className='temp' onSubmit={func}>
+          <form className='temp' onSubmit={createPost}>
             <div className="announcement">
               <p className='announcementTxt'></p>
             </div>
