@@ -105,7 +105,7 @@ html{
   display: flex;
   border: solid black 2.5px;
   justify-content: space-evenly;
-  height: 15vh;
+  height: 20vh;
   margin: 0%;
   padding: 0%;
 }
